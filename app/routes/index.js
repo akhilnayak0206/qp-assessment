@@ -19,6 +19,10 @@ router.use(authMiddleware);
 // user routes
 // view the list of avl grocery items with pagination
 router.get('/view-groceries', groceryUserValidator.validateViewAvailableGroceries, groceryUserController.viewAvailableGroceries);
+// add grocery items to cart
+router.post('/add-to-cart', groceryUserValidator.addToCartValidator, groceryUserController.addToCart);
+// create an order
+router.post('/create-order', groceryUserController.createOrder);
 
 // admin routes
 router.use('/admin/', adminRoutes);
