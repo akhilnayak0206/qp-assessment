@@ -10,30 +10,41 @@ const authMiddleware = (req, res, next) => {
 
   jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
     if (err) {
-      // Access token is expired or invalid
+      // access token is expired or invalid
       jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (refreshErr, refreshUser) => {
         if (refreshErr) {
           // Refresh token is expired or invalid
           return res.status(403).json({ message: 'Forbidden' });
         }
 
-        // Generate a new access token
+        // get a new access token
         const newAccessToken = jwt.sign({ userId: refreshUser.userId, role: refreshUser.role }, process.env.ACCESS_TOKEN_SECRET, {
           expiresIn: '12h'
         });
 
-        // Update the access token in the cookie
+        // update the access token in the cookie
         res.cookie('accessToken', newAccessToken, { httpOnly: true, secure: true, maxAge: 12 * 60 * 60 * 1000 }); // 12h
         req.user = refreshUser;
 
         return next();
       });
     } else {
-      // Access token is valid, proceed with the request
+      // access token is valid, proceed with the request
       req.user = user;
       return next();
     }
   });
 };
 
-module.exports = { authMiddleware };
+const checkAdminMiddleware = (req, res, next) => {
+  // user will be present after auth middleware
+  const user = req.user;
+
+  if (!user || user.role !== 'admin') {
+    return res.status(403).json({ message: 'Forbidden. Admin access required.' });
+  }
+
+  next();
+};
+
+module.exports = { authMiddleware, checkAdminMiddleware };
