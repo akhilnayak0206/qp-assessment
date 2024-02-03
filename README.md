@@ -75,9 +75,9 @@ To get started with the Grocery Store, follow these steps:
 > Info: To check if apis are running, run `localhost:3300/api/` and check if you get the output as "Welcome"
 ---
 > Once the apis are running please create a user and then run the login api. 
-> ![get-cookie](./login-cookie.png)
+> ![get-cookie](./screenshots/login-cookie.png)
 > Post that copy access token and refresh token and paste it in the headers Cookie within Postman.
-> ![add-in-header-cookie](./paste-header-cookie.png)
+> ![add-in-header-cookie](./screenshots/paste-header-cookie.png)
 
 ---
 
