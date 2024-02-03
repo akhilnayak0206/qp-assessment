@@ -1,0 +1,476 @@
+{
+	"info": {
+		"_postman_id": "c0efc8dc-993a-484c-97b5-cdd87d8dd9a0",
+		"name": "Grocery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin-create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Don Joe Admin\",\n    \"email\":\"don-admin@q.com\",\n    \"password\":\"12345678\",\n    \"role\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3300/api/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin-view groceries",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3MDAxMDA5fQ.19uKsPwe-kIK1aIXBIuo_iJ2Y1MNp7KHScjoCpAUb2g; Max-Age=43200; Path=/; Expires=Sat, 03 Feb 2024 22:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "Cookie",
+						"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3NTYyNjA5fQ.8DaCyDIXXSCJWrjbebUOUcThpD_hJ955OfxoFLvsUok; Max-Age=604800; Path=/; Expires=Sat, 10 Feb 2024 10:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:3300/api/admin/view-groceries?page=1&pageSize=20",
+					"host": [
+						"localhost"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"admin",
+						"view-groceries"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin-add grocery",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3MDAxMDA5fQ.19uKsPwe-kIK1aIXBIuo_iJ2Y1MNp7KHScjoCpAUb2g; Max-Age=43200; Path=/; Expires=Sat, 03 Feb 2024 22:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "Cookie",
+						"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3NTYyNjA5fQ.8DaCyDIXXSCJWrjbebUOUcThpD_hJ955OfxoFLvsUok; Max-Age=604800; Path=/; Expires=Sat, 10 Feb 2024 10:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Tomato - 1Kg\",\n    \"price\": 20,\n    \"description\": \"Can add richtext or normal text\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3300/api/admin/add-grocery",
+					"host": [
+						"localhost"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"admin",
+						"add-grocery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin-user login",
+			"protocolProfileBehavior": {
+				"disableCookies": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"don-admin@q.com\",\n    \"password\":\"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3300/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin-create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Don Joe Admin\",\n    \"email\":\"don-admin@q.com\",\n    \"password\":\"12345678\",\n    \"role\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3300/api/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin-remove grocery",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3MDAxMDA5fQ.19uKsPwe-kIK1aIXBIuo_iJ2Y1MNp7KHScjoCpAUb2g; Max-Age=43200; Path=/; Expires=Sat, 03 Feb 2024 22:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "Cookie",
+						"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3NTYyNjA5fQ.8DaCyDIXXSCJWrjbebUOUcThpD_hJ955OfxoFLvsUok; Max-Age=604800; Path=/; Expires=Sat, 10 Feb 2024 10:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:3300/api/admin/remove-grocery/5",
+					"host": [
+						"localhost"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"admin",
+						"remove-grocery",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin-update grocery",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3MDAxMDA5fQ.19uKsPwe-kIK1aIXBIuo_iJ2Y1MNp7KHScjoCpAUb2g; Max-Age=43200; Path=/; Expires=Sat, 03 Feb 2024 22:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "Cookie",
+						"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3NTYyNjA5fQ.8DaCyDIXXSCJWrjbebUOUcThpD_hJ955OfxoFLvsUok; Max-Age=604800; Path=/; Expires=Sat, 10 Feb 2024 10:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Tomato - 1Kg\",\n    \"price\": 35,\n    \"description\": \"Can add richtext or normal text or just updated text\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3300/api/admin/update-grocery/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"admin",
+						"update-grocery",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin-Manage Inventory",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3MDAxMDA5fQ.19uKsPwe-kIK1aIXBIuo_iJ2Y1MNp7KHScjoCpAUb2g; Max-Age=43200; Path=/; Expires=Sat, 03 Feb 2024 22:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "Cookie",
+						"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3NTYyNjA5fQ.8DaCyDIXXSCJWrjbebUOUcThpD_hJ955OfxoFLvsUok; Max-Age=604800; Path=/; Expires=Sat, 10 Feb 2024 10:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"quantity\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3300/api/admin/manage-inventory/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"admin",
+						"manage-inventory",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User-Add To Cart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3MDAxMDA5fQ.19uKsPwe-kIK1aIXBIuo_iJ2Y1MNp7KHScjoCpAUb2g; Max-Age=43200; Path=/; Expires=Sat, 03 Feb 2024 22:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "Cookie",
+						"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3NTYyNjA5fQ.8DaCyDIXXSCJWrjbebUOUcThpD_hJ955OfxoFLvsUok; Max-Age=604800; Path=/; Expires=Sat, 10 Feb 2024 10:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"groceryItemId\": 1,\n    \"quantity\": 7\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3300/api/add-to-cart",
+					"host": [
+						"localhost"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"add-to-cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User-View Groceries",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3MDAxMDA5fQ.19uKsPwe-kIK1aIXBIuo_iJ2Y1MNp7KHScjoCpAUb2g; Max-Age=43200; Path=/; Expires=Sat, 03 Feb 2024 22:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "Cookie",
+						"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3NTYyNjA5fQ.8DaCyDIXXSCJWrjbebUOUcThpD_hJ955OfxoFLvsUok; Max-Age=604800; Path=/; Expires=Sat, 10 Feb 2024 10:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:3300/api/view-groceries?page=1&pageSize=10",
+					"host": [
+						"localhost"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"view-groceries"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User-create order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3MDAxMDA5fQ.19uKsPwe-kIK1aIXBIuo_iJ2Y1MNp7KHScjoCpAUb2g; Max-Age=43200; Path=/; Expires=Sat, 03 Feb 2024 22:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "Cookie",
+						"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNjk1NzgwOSwiZXhwIjoxNzA3NTYyNjA5fQ.8DaCyDIXXSCJWrjbebUOUcThpD_hJ955OfxoFLvsUok; Max-Age=604800; Path=/; Expires=Sat, 10 Feb 2024 10:56:49 GMT; HttpOnly; Secure",
+						"type": "default"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:3300/api/create-order",
+					"host": [
+						"localhost"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"create-order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User- register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Don Joe User\",\n    \"email\":\"don-user@q.com\",\n    \"password\":\"12345678\",\n    \"role\":\"user\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3300/api/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3300",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

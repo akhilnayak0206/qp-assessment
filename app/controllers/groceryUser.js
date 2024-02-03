@@ -87,7 +87,7 @@ const createOrder = async (req, res) => {
 
       // if the cart is empty, send an error response
       if (cartItems.length === 0) {
-        return res.status(400).json({ error: 'Cart is empty.' });
+        throw new Error('Cart is Empty');
       }
 
       // Step 3: check and update the qty of each item in the cart
@@ -122,10 +122,7 @@ const createOrder = async (req, res) => {
 
       // if there are insufficient qty items send an err res
       if (insufficientQuantityItems.length > 0) {
-        return res.status(400).json({
-          error: 'Insufficient quantity for one or more items.',
-          insufficientQuantityItems
-        });
+        throw new Error('One or more items do not exist or have insufficient quantity.');
       }
 
       // Step 4: remove items from CartItem table
@@ -134,7 +131,7 @@ const createOrder = async (req, res) => {
 
     return res.status(200).json({ message: 'Order placed successfully.' });
   } catch (error) {
-    return res.status(500).json({ error: 'Internal server error.' });
+    return res.status(500).json({ message: error.message, error: 'Error' });
   }
 };
 
