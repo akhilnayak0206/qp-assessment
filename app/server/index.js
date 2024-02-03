@@ -1,6 +1,8 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const routes = require('../routes');
 
 const server = express();
 
@@ -20,8 +22,11 @@ server.use(express.urlencoded({ extended: true }));
 server.use(cors());
 server.options('*', cors());
 
+// for cookies
+server.use(cookieParser());
+
 // define api routes
-server.use('/api', (req, res) => res.send('API is live!'));
+server.use('/api', routes);
 
 // export server
 module.exports = server;
