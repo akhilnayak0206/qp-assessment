@@ -14,7 +14,7 @@ const validateAddGrocery = [
 
 const validateViewGroceries = [
   query('page').optional().isInt({ min: 1 }).withMessage('Invalid page number, must be a positive integer'),
-  query('pageSize').optional().isInt({ min: 1, max: 100 }).withMessage('Invalid page size, must be between 1 and 100'),
+  query('pageSize').optional().isInt({ min: 1 }).withMessage('Invalid page size, should be more than 0'),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
