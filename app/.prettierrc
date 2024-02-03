@@ -1,0 +1,13 @@
+{
+  "printWidth": 150,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "none",
+  "bracketSpacing": true,
+  "endOfLine": "auto",
+  "quoteProps": "consistent",
+  "importOrder": ["^express(.*)", "^sequelize(.*)", "<THIRD_PARTY_MODULES>", "@/models(.*)", "@/(.*)", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "overrides": [{ "files": "package.json", "options": { "useTabs": true, "tabWidth": 2 } }]
+}

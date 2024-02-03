@@ -1,0 +1,13 @@
+{
+    "eslint.enable": true,
+    "editor.formatOnSave": true,
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.configPath": ".prettierrc",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "cSpell.words": ["hstore"]
+  }
+  
